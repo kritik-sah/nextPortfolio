@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "./partials/_Navbar.scss";
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+.htmlBase {
+  ul {
+    li {
+      list-style: disc;
+      list-style-position: outside;
+    }
+  }
+}
