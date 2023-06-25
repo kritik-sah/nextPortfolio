@@ -2,6 +2,7 @@ import { Providers } from "@/redux/provider";
 import "../styles/globals.scss";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
+import "react-toastify/dist/ReactToastify.css";
 
 export const metadata = {
   title: "Create Next App",
