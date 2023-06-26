@@ -32,7 +32,7 @@ const Login = () => {
       });
 
       if (res?.error == null) {
-        router.push("/");
+        router.push("/admin");
       } else {
         toast.error("Error occured while logging");
       }

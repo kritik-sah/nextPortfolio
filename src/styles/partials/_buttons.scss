@@ -1,0 +1,19 @@
+.btn-primary {
+  padding: 10px 20px;
+  min-width: 150px;
+  border-radius: 4px;
+  background: #0055bc;
+  color: #f3f9ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  &:hover {
+    background: #014fae;
+    color: #fbfcfc;
+  }
+  &:disabled {
+    background: #7392b7;
+    color: #242424;
+  }
+}

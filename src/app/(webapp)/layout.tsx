@@ -1,6 +1,5 @@
-import { Providers } from "@/redux/provider";
-import "../styles/globals.scss";
-import "react-toastify/dist/ReactToastify.css";
+import Navbar from "@/components/Navbar/Navbar";
+import Footer from "@/components/Footer/Footer";
 
 export const metadata = {
   title: "Create Next App",
@@ -15,7 +14,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Providers>{children}</Providers>
+        <Navbar />
+        {children}
+        <Footer />
       </body>
     </html>
   );
