@@ -219,8 +219,15 @@ const tempdata = [
     personal: true,
   },
 ];
+export async function fetchProjects() {
+  const resp = await fetch("http://localhost:3000/api/project", {
+    cache: "no-store",
+  });
 
-const Portfolio = () => {
+  return resp.json();
+}
+const Portfolio = async () => {
+  const data: any = await fetchProjects();
   return (
     <section className="text-gray-600 body-font">
       <div className="container px-5 py-24 mx-auto">
@@ -235,7 +242,7 @@ const Portfolio = () => {
           </p>
         </div>
         <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6">
-          {tempdata?.map((proj, index) => (
+          {data?.map((proj: any, index: any) => (
             <PortfolioCard key={index} data={proj} />
           ))}
         </div>

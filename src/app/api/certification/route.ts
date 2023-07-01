@@ -8,7 +8,7 @@ export async function GET(req: any) {
 
   try {
     const certifications = await Certification.find({})
-      .limit(16)
+      .sort({ createdAt: -1 })
       .populate("authorId");
     return new Response(JSON.stringify(certifications), { status: 200 });
   } catch (error) {

@@ -37,8 +37,17 @@ const tempData = [
     to: "Present",
   },
 ];
+export async function fetchExp() {
+  const resp = await fetch("http://localhost:3000/api/experience", {
+    cache: "no-store",
+  });
 
-const Experience = () => {
+  return resp.json();
+}
+
+const Experience = async () => {
+  const data: any = await fetchExp();
+  console.log("🚀 ~ file: Experience.tsx:50 ~ Experience ~ data:", data);
   return (
     <section className="text-gray-600 bg-gray-100 body-font">
       <div className="container px-5 py-24 mx-auto">
@@ -51,7 +60,7 @@ const Experience = () => {
           </p>
         </div>
         <div className="grid lg:grid-cols-2 grid-cols-1 gap-6 -m-2">
-          {tempData?.map((exp, index) => (
+          {data?.map((exp: any, index: any) => (
             <article
               key={index}
               className="flex w-full bg-white transition hover:shadow-xl"

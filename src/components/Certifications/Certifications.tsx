@@ -31,7 +31,24 @@ const tempData = [
   },
 ];
 
-const Certifications = () => {
+export async function fetchCertificates() {
+  const resp = await fetch("http://localhost:3000/api/certification", {
+    cache: "no-store",
+  });
+  console.log(
+    "🚀 ~ file: Certifications.tsx:38 ~ fetchCertificates ~ resp:",
+    resp
+  );
+  return resp.json();
+}
+
+const Certifications = async () => {
+  const data: any = await fetchCertificates();
+  console.log(
+    "🚀 ~ file: Certifications.tsx:41 ~ Certifications ~ data:",
+    data
+  );
+
   return (
     <section className="text-gray-600 body-font">
       <div className="container px-5 py-24 mx-auto">
@@ -46,7 +63,7 @@ const Certifications = () => {
           </p>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {tempData?.map((cert, index) => (
+          {data?.map((cert: any, index: any) => (
             <Certificate key={index} data={cert} />
           ))}
         </div>

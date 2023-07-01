@@ -8,7 +8,7 @@ export async function GET(req: any) {
 
   try {
     const experiences = await Experience.find({})
-      .limit(16)
+      .sort({ createdAt: -1 })
       .populate("authorId");
     return new Response(JSON.stringify(experiences), { status: 200 });
   } catch (error) {

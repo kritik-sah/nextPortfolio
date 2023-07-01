@@ -7,7 +7,9 @@ export async function GET(req: any) {
   await db.connect();
 
   try {
-    const projects = await Project.find({}).limit(16).populate("authorId");
+    const projects = await Project.find({})
+      .sort({ createdAt: -1 })
+      .populate("authorId");
     return new Response(JSON.stringify(projects), { status: 200 });
   } catch (error) {
     return new Response(JSON.stringify(null), { status: 500 });
