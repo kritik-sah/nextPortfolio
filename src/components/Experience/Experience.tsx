@@ -38,9 +38,14 @@ const tempData = [
   },
 ];
 export async function fetchExp() {
-  const resp = await fetch("http://localhost:3000/api/experience", {
-    cache: "no-store",
-  });
+  let resp: any = [];
+  try {
+    const resp = await fetch("http://localhost:3000/api/experience", {
+      cache: "no-store",
+    });
+  } catch (error) {
+    console.log("🚀 ~ file: Experience.tsx:47 ~ fetchExp ~ error:", error);
+  }
 
   return resp.json();
 }

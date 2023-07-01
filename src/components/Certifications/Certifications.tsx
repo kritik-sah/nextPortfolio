@@ -32,13 +32,18 @@ const tempData = [
 ];
 
 export async function fetchCertificates() {
-  const resp = await fetch("http://localhost:3000/api/certification", {
-    cache: "no-store",
-  });
-  console.log(
-    "🚀 ~ file: Certifications.tsx:38 ~ fetchCertificates ~ resp:",
-    resp
-  );
+  let resp: any = [];
+  try {
+    resp = await fetch("http://localhost:3000/api/certification", {
+      cache: "no-store",
+    });
+  } catch (error) {
+    console.log(
+      "🚀 ~ file: Certifications.tsx:38 ~ fetchCertificates ~ error:",
+      error
+    );
+  }
+
   return resp.json();
 }
 

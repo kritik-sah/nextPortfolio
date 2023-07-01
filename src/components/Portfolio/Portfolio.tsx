@@ -220,9 +220,14 @@ const tempdata = [
   },
 ];
 export async function fetchProjects() {
-  const resp = await fetch("http://localhost:3000/api/project", {
-    cache: "no-store",
-  });
+  let resp: any = [];
+  try {
+    resp = await fetch("http://localhost:3000/api/project", {
+      cache: "no-store",
+    });
+  } catch (error) {
+    console.log("🚀 ~ file: Portfolio.tsx:229 ~ fetchProjects ~ error:", error);
+  }
 
   return resp.json();
 }
